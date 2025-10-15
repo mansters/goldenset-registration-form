@@ -1,0 +1,103 @@
+@tailwind components;
+
+@layer components {
+  .col {
+    @apply box-border;
+  }
+
+  .col-1 {
+    @apply w-[4.166667%];
+  }
+
+  .col-2 {
+    @apply w-[8.333333%];
+  }
+
+  .col-3 {
+    @apply w-[12.5%];
+  }
+
+  .col-4 {
+    @apply w-[16.666667%];
+  }
+
+  .col-5 {
+    @apply w-[20.833333%];
+  }
+
+  .col-6 {
+    @apply w-[25%];
+  }
+
+  .col-7 {
+    @apply w-[29.166667%];
+  }
+
+  .col-8 {
+    @apply w-[33.333333%];
+  }
+
+  .col-9 {
+    @apply w-[37.5%];
+  }
+
+  .col-10 {
+    @apply w-[41.666667%];
+  }
+
+  .col-11 {
+    @apply w-[45.833333%];
+  }
+
+  .col-12 {
+    @apply w-[50%];
+  }
+
+  .col-13 {
+    @apply w-[54.166667%];
+  }
+
+  .col-14 {
+    @apply w-[58.333333%];
+  }
+
+  .col-15 {
+    @apply w-[62.5%];
+  }
+
+  .col-16 {
+    @apply w-[66.666667%];
+  }
+
+  .col-17 {
+    @apply w-[70.833333%];
+  }
+
+  .col-18 {
+    @apply w-[75%];
+  }
+
+  .col-19 {
+    @apply w-[79.166667%];
+  }
+
+  .col-20 {
+    @apply w-[83.333333%];
+  }
+
+  .col-21 {
+    @apply w-[87.5%];
+  }
+
+  .col-22 {
+    @apply w-[91.666667%];
+  }
+
+  .col-23 {
+    @apply w-[95.833333%];
+  }
+
+  .col-24 {
+    @apply w-full;
+  }
+}
