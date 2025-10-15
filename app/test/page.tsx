@@ -1,3 +1,4 @@
+import Button from "@/components/Button";
 import Col from "@/components/Col";
 import Row from "@/components/Row";
 import React from "react";
@@ -79,6 +80,15 @@ const TestPage = () => {
           <div className="bg-yellow-300">Col-24</div>
         </Col>
       </Row>
+
+      <div className="space-x-4">
+        <Button>Click Me</Button>
+        <Button type="primary">Click Me</Button>
+        <Button disabled>Click Me</Button>
+        <Button type="primary" disabled>
+          Click Me
+        </Button>
+      </div>
     </div>
   );
 };

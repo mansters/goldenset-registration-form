@@ -8,20 +8,12 @@ describe("Component/Row", () => {
     testPropToClassName(<Row />, ["row", "row-justify-start", "row-align-top"]);
   });
 
-  it("applies justify prop correctly", () => {
-    testPropToClassName(<Row justify="center" />, "row-justify-center");
-  });
-
-  it("applies align prop correctly", () => {
-    testPropToClassName(<Row align="middle" />, "row-align-middle");
-  });
-
-  it("check custom className", () => {
+  it("props check -> custom className", () => {
     const cls = `custom-class-${Math.floor(Math.random() * 10000)}`;
     testPropToClassName(<Row className={cls} />, cls);
   });
 
-  it("check props: justify", () => {
+  it("props classNames mapping check -> justify", () => {
     const justifyOptions: RowProps["justify"][] = ["start", "end", "center", "between", "around", "evenly"];
 
     justifyOptions.forEach((justify) => {
@@ -29,7 +21,7 @@ describe("Component/Row", () => {
     });
   });
 
-  it("check props: align", () => {
+  it("props classNames mapping check -> align", () => {
     const alignOptions: RowProps["align"][] = ["top", "middle", "bottom", "stretch"];
 
     alignOptions.forEach((align) => {
