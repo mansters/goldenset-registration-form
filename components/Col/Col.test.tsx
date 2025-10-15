@@ -1,10 +1,7 @@
-/**
- * @jest-environment jsdom
- */
-import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { render } from "@testing-library/react";
+import Row from "@/components/Row";
 import Col from "./index";
-import Row from "../Row/index";
 import { testComponentStyleWithSelector, testPropToClassName, testComponentStyle } from "../__tests__/testUtils";
 
 describe("Component/Col", () => {
