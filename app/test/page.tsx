@@ -1,11 +1,15 @@
+"use client";
 import Button from "@/components/Button";
 import Col from "@/components/Col";
+import Input from "@/components/Input";
 import Row from "@/components/Row";
-import React from "react";
+import React, { useState } from "react";
 
 const TestPage = () => {
+  const [txt, setTxt] = useState("");
+
   return (
-    <div>
+    <div className="p-4 space-y-4">
       <Row gutter={[12, 12]}>
         <Col span={1}>
           <div className="bg-yellow-300">Col-1</div>
@@ -88,6 +92,21 @@ const TestPage = () => {
         <Button type="primary" disabled>
           Click Me
         </Button>
+      </div>
+
+      <div className="space-y-4">
+        <div>
+          <Input value={txt} onChange={setTxt} />
+        </div>
+        <div>
+          <Input disabled value={txt} onChange={setTxt} />
+        </div>
+        <div>
+          <Input type="password" value={txt} onChange={setTxt} />
+        </div>
+        <div>
+          <Input type="password" disabled value={txt} onChange={setTxt} />
+        </div>
       </div>
     </div>
   );
