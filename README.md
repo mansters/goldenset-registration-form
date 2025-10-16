@@ -1,43 +1,22 @@
-# Next.js + Jest
+## where are the places you could do better?
 
-This example shows how to configure Jest to work with Next.js.
+### The extendable and more features of components
 
-This includes Next.js' built-in support for Global CSS, CSS Modules and TypeScript. This example also shows how to use Jest with the App Router and React Server Components.
+If implementing a real components library, there are a few things that should be considered.
 
-> **Note:** Since tests can be co-located alongside other files inside the App Router, we have placed those tests in `app/` to demonstrate this behavior (which is different than `pages/`). You can still place all tests in `__tests__` if you prefer.
+- All components should support size, like `large`, `default`, `small`.
+- should support customizable styles by using CSS variables
+- document support
 
-## Deploy your own
+From the components' perspective, the enhancements of them are:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-jest&project-name=with-jest&repository-name=with-jest)
-
-## How to Use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-jest with-jest-app
-```
-
-```bash
-yarn create next-app --example with-jest with-jest-app
-```
-
-```bash
-pnpm create next-app --example with-jest with-jest-app
-```
-
-## Running Tests
-
-```bash
-npm test
-```
-
-```bash
-yarn test
-```
-
-```bash
-pnpm test
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+- should support icons; for instance, using an icon when the switch shows/hides the status of password input instead of plain text
+- Input:
+  - should support prefix, suffix, loading
+  - The password component should extend from basic `Input`, and apply the show/hide feature by using the suffix.
+- Form:
+  - The verification should support different trigger times, like on `change`, `blur` or only when `submitting`.
+  - should support nested form items
+  - should support item group
+  - currently when the internal store (value, touched, errors) changes, it bursts force to trigger all the component rerenders, it should trigger more precisely on field level.
+  - the validation should support debounce, especially for the validation that invokes an api, like email.

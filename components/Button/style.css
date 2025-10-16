@@ -5,6 +5,7 @@
     @apply px-4 py-2 rounded border transition-all duration-200 font-medium;
     @apply focus:outline-none focus:ring-2 focus:ring-offset-1;
     @apply min-w-[100px];
+    @apply inline-flex items-center justify-center;
 
     &:not(:disabled) {
       @apply cursor-pointer;
@@ -38,6 +39,21 @@
 
     &:not(:disabled):active {
       @apply bg-blue-700;
+    }
+  }
+
+  .btn-loading-spinner {
+    @apply inline-block w-4 h-4 border-2 border-current border-t-transparent rounded-full;
+    animation: btn-spin 0.6s linear infinite;
+    margin-right: 8px;
+  }
+
+  @keyframes btn-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
     }
   }
 }

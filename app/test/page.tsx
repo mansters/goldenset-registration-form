@@ -94,6 +94,13 @@ const TestPage = () => {
         </Button>
       </div>
 
+      <div className="space-x-4">
+        <Button loading>Loading Default</Button>
+        <Button type="primary" loading>
+          Loading Primary
+        </Button>
+      </div>
+
       <div className="space-y-4">
         <div>
           <Input value={txt} onChange={setTxt} />

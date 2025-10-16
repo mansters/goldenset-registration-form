@@ -28,7 +28,7 @@ class FormStore {
     this.notify();
   };
 
-  private setFieldsValue = (newStore: Store) => {
+  private setFieldsValue = (newStore: Record<string, any>) => {
     Object.entries(newStore).forEach(([fieldName, value]) => {
       this.setFieldValue(fieldName, value);
     });
