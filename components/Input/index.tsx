@@ -1,6 +1,7 @@
 "use client";
 
 import React, { ChangeEvent, useState } from "react";
+import classnames from "classnames";
 import { InputProps } from "./interface";
 import "./style.css";
 
@@ -23,7 +24,7 @@ const Input: React.FC<InputProps> = ({ value, onChange, placeholder, disabled = 
   if (isPassword) {
     return (
       <div className="input-wrapper">
-        <input type={inputType} value={value || ""} onChange={handleChange} placeholder={placeholder} disabled={disabled} className={`input input-with-toggle ${className}`} />
+        <input type={inputType} value={value || ""} onChange={handleChange} placeholder={placeholder} disabled={disabled} className={classnames("input", "input-with-toggle", className)} />
         <button type="button" className="input-toggle" onClick={togglePasswordVisibility} disabled={disabled} tabIndex={-1}>
           {showPassword ? "Hide" : "Show"}
         </button>
@@ -31,7 +32,7 @@ const Input: React.FC<InputProps> = ({ value, onChange, placeholder, disabled = 
     );
   }
 
-  return <input type={type} value={value || ""} onChange={handleChange} placeholder={placeholder} disabled={disabled} className={`input ${className}`} />;
+  return <input type={type} value={value || ""} onChange={handleChange} placeholder={placeholder} disabled={disabled} className={classnames("input", className)} />;
 };
 
 export default Input;

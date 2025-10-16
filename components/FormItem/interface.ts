@@ -24,4 +24,5 @@ export interface FormItemProps<T = any> extends React.PropsWithChildren, FormSha
   label?: string;
   name?: string;
   rules?: ValidationRule[];
+  classNames?: string;
 }

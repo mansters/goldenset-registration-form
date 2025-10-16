@@ -1,14 +1,13 @@
 "use client";
 
 import React, { useContext, useMemo } from "react";
+import classnames from "classnames";
 import { ColProps } from "./interface";
 import "./style.css";
 import RowContext from "../Row/context";
 
 const Col: React.FC<ColProps> = ({ children, span = 24, className = "" }) => {
   const { gutter } = useContext(RowContext);
-
-  const spanClass = `col col-${span}`;
 
   const style = useMemo<React.CSSProperties>(() => {
     const style: React.CSSProperties = {};
@@ -28,7 +27,7 @@ const Col: React.FC<ColProps> = ({ children, span = 24, className = "" }) => {
   }, []);
 
   return (
-    <div className={`${spanClass} ${className}`} style={style}>
+    <div className={classnames("col", `col-${span}`, className)} style={style}>
       {children}
     </div>
   );

@@ -1,4 +1,5 @@
 import React from "react";
+import classnames from "classnames";
 import { AlertProps, AlertType } from "./interface";
 import "./style.css";
 
@@ -33,10 +34,8 @@ const iconMap: Record<AlertType, React.ReactElement> = {
 };
 
 const Alert: React.FC<AlertProps> = ({ type, message, className = "" }) => {
-  const alertClass = `alert alert-${type}`;
-
   return (
-    <div className={`${alertClass} ${className}`} role="alert">
+    <div className={classnames("alert", `alert-${type}`, className)} role="alert">
       {iconMap[type]}
       <div className="alert-message">{message}</div>
     </div>

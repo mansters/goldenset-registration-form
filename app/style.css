@@ -1,0 +1,37 @@
+@tailwind components;
+
+@layer components {
+  .registration-page {
+    @apply min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50;
+    @apply flex items-center justify-center p-4;
+  }
+
+  .registration-container {
+    @apply w-full max-w-md;
+  }
+
+  .registration-header {
+    @apply text-center mb-8;
+  }
+
+  .registration-title {
+    @apply text-4xl font-bold text-gray-900 mb-2;
+  }
+
+  .registration-subtitle {
+    @apply text-gray-600;
+  }
+
+  .registration-card {
+    @apply bg-white rounded-2xl shadow-xl border border-gray-100;
+    @apply pt-7 px-8 pb-8;
+  }
+
+  .registration-footer {
+    @apply text-center text-sm text-gray-500 mt-6;
+  }
+
+  .registration-footer a {
+    @apply text-blue-600 hover:text-blue-700 font-medium;
+  }
+}

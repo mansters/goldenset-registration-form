@@ -1,13 +1,14 @@
 "use client";
 
 import React, { useContext, useEffect, useCallback, useMemo } from "react";
+import classnames from "classnames";
 import { FormItemProps } from "./interface";
 import FormContext from "../Form/context";
 import Row from "../Row";
 import Col from "../Col";
 import "./style.css";
 
-const FormItem: React.FC<FormItemProps> = ({ children, label, name, rules = [], layout: itemLayout, labelCol: itemLabelCol, wrapperCol: itemWrapperCol }) => {
+const FormItem: React.FC<FormItemProps> = ({ children, label, name, rules = [], layout: itemLayout, labelCol: itemLabelCol, wrapperCol: itemWrapperCol, classNames }) => {
   const form = useContext(FormContext.Store);
   const config = useContext(FormContext.Internal);
   const [, forceUpdate] = React.useReducer((x) => x + 1, 0);
@@ -26,7 +27,7 @@ const FormItem: React.FC<FormItemProps> = ({ children, label, name, rules = [], 
   if (!name) {
     if (layout === "vertical") {
       return (
-        <div className={`form-item form-item-vertical`}>
+        <div className={classnames("form-item form-item-vertical", classNames)}>
           <div className="form-item-label">{label}</div>
           <div className="form-item-control">{children}</div>
         </div>
@@ -34,7 +35,7 @@ const FormItem: React.FC<FormItemProps> = ({ children, label, name, rules = [], 
     }
 
     return (
-      <div className={`form-item form-item-horizontal`}>
+      <div className={classnames("form-item form-item-horizontal", classNames)}>
         <Row>
           <Col span={labelCol.span}>
             <div className="form-item-label">{label}</div>
@@ -76,7 +77,7 @@ const FormItem: React.FC<FormItemProps> = ({ children, label, name, rules = [], 
 
   if (layout === "vertical") {
     return (
-      <div className={`form-item form-item-vertical ${showError ? "form-item-has-error" : ""}`}>
+      <div className={classnames("form-item", "form-item-vertical", classNames, { "form-item-has-error": showError })}>
         {label && (
           <div className="form-item-label">
             {isRequired && <span className="form-item-required">*</span>}
@@ -93,7 +94,7 @@ const FormItem: React.FC<FormItemProps> = ({ children, label, name, rules = [], 
 
   // Horizontal layout
   return (
-    <div className={`form-item form-item-horizontal ${showError ? "form-item-has-error" : ""}`}>
+    <div className={classnames("form-item", "form-item-horizontal", classNames, { "form-item-has-error": showError })}>
       <Row>
         {label && (
           <Col span={labelCol.span}>

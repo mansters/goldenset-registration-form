@@ -83,12 +83,12 @@ const RegistrationForm = () => {
           <Input type="password" />
         </FormItem>
 
-        <FormItem>
-          <div className="space-x-4 mt-8">
-            <Button onClick={handleReset} disabled={loading}>
+        <FormItem classNames="!mb-0">
+          <div className="space-x-4 mt-6 flex justify-end">
+            <Button className="flex-1" onClick={handleReset} disabled={loading}>
               Reset
             </Button>
-            <Button type="primary" htmlType="submit" loading={loading}>
+            <Button className="flex-1" type="primary" htmlType="submit" loading={loading}>
               Submit
             </Button>
           </div>
