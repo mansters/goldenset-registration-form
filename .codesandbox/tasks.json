@@ -9,29 +9,19 @@
 
   // These tasks can be run from CodeSandbox. Running one will open a log in the app.
   "tasks": {
-    "dev": {
-      "name": "dev",
-      "command": "npm run dev",
+    "dev:frontend": {
+      "name": "dev:frontend",
+      "command": "npm run dev:frontend",
       "runAtStart": true
     },
-    "build": {
-      "name": "build",
-      "command": "npm run build",
+    "build:frontend": {
+      "name": "build:frontend",
+      "command": "npm run build:frontend",
       "runAtStart": false
     },
-    "start": {
-      "name": "start",
-      "command": "npm run start",
-      "runAtStart": false
-    },
-    "test": {
-      "name": "test",
-      "command": "npm run test",
-      "runAtStart": false
-    },
-    "test:ci": {
-      "name": "test:ci",
-      "command": "npm run test:ci",
+    "test:frontend": {
+      "name": "test:frontend",
+      "command": "npm run test:frontend",
       "runAtStart": false
     }
   }
