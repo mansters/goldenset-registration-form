@@ -11,10 +11,12 @@ import { ValidationRule } from "@/components/FormItem/interface";
 import { FormProps } from "@/components/Form/interface";
 import { registerUser } from "@/service/user";
 import { omit } from "lodash";
+import Alert from "@/components/Alert";
 
 const RegistrationForm = () => {
   const [instance] = useForm<RegistrationFormSchema>();
   const [message, setMessage] = useState<RegistrationFormStatusMessage | null>(null);
+  const [loading, setLoading] = useState(false);
 
   const confirmPasswordRules = useMemo<ValidationRule[]>(
     () => [
@@ -35,6 +37,7 @@ const RegistrationForm = () => {
 
   const handleSubmit = useCallback<Required<FormProps<RegistrationFormSchema>>["onFinish"]>(async (formSchema) => {
     try {
+      setLoading(true);
       const response = await registerUser(omit(formSchema, ["confirmPassword"]));
       if (response.status) {
         setMessage({
@@ -49,6 +52,8 @@ const RegistrationForm = () => {
         type: "error",
         message: e?.message || e || "Oops! Something went wrong on our end. Please try again later or contact the administrator for further support.",
       });
+    } finally {
+      setLoading(false);
     }
   }, []);
 
@@ -58,7 +63,9 @@ const RegistrationForm = () => {
   }, []);
 
   return (
-    <div>
+    <div className="space-y-6">
+      {message && <Alert type={message.type} message={message.message} />}
+
       <Form form={instance} onFinish={handleSubmit}>
         <FormItem label="First Name" name="firstName" rules={rules.firstName}>
           <Input />
@@ -77,9 +84,11 @@ const RegistrationForm = () => {
         </FormItem>
 
         <FormItem>
-          <div className="space-x-4">
-            <Button onClick={handleReset}>Reset</Button>
-            <Button type="primary" htmlType="submit">
+          <div className="space-x-4 mt-8">
+            <Button onClick={handleReset} disabled={loading}>
+              Reset
+            </Button>
+            <Button type="primary" htmlType="submit" loading={loading}>
               Submit
             </Button>
           </div>

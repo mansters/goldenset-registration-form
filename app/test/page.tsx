@@ -1,4 +1,5 @@
 "use client";
+import Alert from "@/components/Alert";
 import Button from "@/components/Button";
 import Col from "@/components/Col";
 import Input from "@/components/Input";
@@ -99,6 +100,12 @@ const TestPage = () => {
         <Button type="primary" loading>
           Loading Primary
         </Button>
+      </div>
+
+      <div className="space-y-4">
+        <Alert type="success" message="Operation completed successfully!" />
+        <Alert type="warning" message="Please review your input before submitting." />
+        <Alert type="error" message="An error occurred while processing your request." />
       </div>
 
       <div className="space-y-4">
