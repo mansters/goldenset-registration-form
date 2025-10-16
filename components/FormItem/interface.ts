@@ -13,6 +13,15 @@ export interface FormSharedConfig {
   wrapperCol?: Pick<ColProps, "span">;
 }
 
-export interface FormItemProps<T = any> extends React.PropsWithChildren {
+export interface ValidationRule {
+  type: "required" | "pattern" | "validator";
+  message?: string;
+  pattern?: RegExp;
+  validator?: (value: any) => Promise<void>;
+}
+
+export interface FormItemProps<T = any> extends React.PropsWithChildren, FormSharedConfig {
   label?: string;
+  name?: string;
+  rules?: ValidationRule[];
 }

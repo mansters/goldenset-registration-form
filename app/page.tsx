@@ -1,7 +1,13 @@
+import RegistrationForm from "./components/RegistrationForm";
+
 export const metadata = {
-  title: "App Router",
+  title: "Registration Form",
 };
 
 export default function Page() {
-  return <h1 className="mt-32">App Router</h1>;
+  return (
+    <div className="p-16">
+      <RegistrationForm />
+    </div>
+  );
 }

@@ -20,7 +20,9 @@
       "@/components/*": ["components/*"],
       "@/pages/*": ["pages/*"],
       "@/styles/*": ["styles/*"],
-      "@/app/*": ["app/*"]
+      "@/app/*": ["app/*"],
+      "@/service/*": ["service/*"],
+      "@/utils/*": ["utils/*"]
     },
     "plugins": [
       {

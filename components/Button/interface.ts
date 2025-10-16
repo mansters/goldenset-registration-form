@@ -7,4 +7,5 @@ export interface ButtonProps extends React.PropsWithChildren {
   type?: ButtonType;
   className?: string;
   disabled?: boolean;
+  htmlType?: React.ButtonHTMLAttributes<HTMLButtonElement>["type"];
 }
