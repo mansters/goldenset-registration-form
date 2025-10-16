@@ -1,24 +1,18 @@
 import { ValidationRule } from "@/components/FormItem/interface";
 import { RegistrationFormSchema } from "./interface";
-import { debounce } from "lodash";
 import { isEmailRegistered } from "@/service/user";
 import * as Regular from "@/utils/regular";
-
-const isEmailRegisteredDebounce = debounce(isEmailRegistered, 300);
 
 const rules: Record<keyof Omit<RegistrationFormSchema, "confirmPassword">, ValidationRule[]> = {
   firstName: [{ type: "required", message: "Please fill in your first name" }],
   lastName: [{ type: "required", message: "Please fill in your last name" }],
   email: [
     { type: "required", message: "Please fill in your email" },
+    { type: "pattern", pattern: Regular.email, message: "Please input correct email, support gmail only" },
     {
       type: "validator",
       async validator(value) {
-        if (!Regular.email.test(value)) {
-          return Promise.reject("Please input correct email");
-        }
-
-        const response = await isEmailRegisteredDebounce(value);
+        const response = await isEmailRegistered(value);
         if (response?.duplicate) {
           return Promise.reject(response.errMsg || "the email has been registered");
         }
