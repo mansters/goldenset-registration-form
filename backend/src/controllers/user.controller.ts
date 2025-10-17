@@ -1,16 +1,18 @@
 import { Request, Response } from "express";
 import * as UserModel from "../models/user.model";
 import * as Regular from "../utils/regular";
+import { ValidatorChain } from "../utils/validator";
+import { EmailFormatValidator, EmailRequiredValidator, PasswordStrengthValidator, RequiredFieldsValidator } from "./user.controller.validator";
 
 export const checkEmail = async (req: Request, res: Response): Promise<void> => {
   try {
     const { email } = req.body;
 
-    if (!email || typeof email !== "string") {
-      res.status(400).json({
-        duplicate: false,
-        errMsg: "Email is required",
-      });
+    const validatorChain = new ValidatorChain().add(new EmailRequiredValidator()).add(new EmailFormatValidator());
+
+    const result = validatorChain.validate(req.body);
+    if (!result.valid) {
+      res.status(result.code!).json({ duplicate: false, errMsg: result.error });
       return;
     }
 
@@ -42,27 +44,11 @@ export const registerUser = async (req: Request, res: Response): Promise<void> =
     const email = req.body.email?.trim?.();
     const password = req.body.password?.trim?.();
 
-    if (!firstName || !lastName || !email || !password) {
-      res.status(400).json({
-        status: false,
-        errMsg: "All fields are required",
-      });
-      return;
-    }
+    const validatorChain = new ValidatorChain().add(new RequiredFieldsValidator()).add(new EmailFormatValidator()).add(new PasswordStrengthValidator());
 
-    if (!Regular.email.test(email)) {
-      res.status(400).json({
-        status: false,
-        errMsg: "Only Gmail are supported",
-      });
-      return;
-    }
-
-    if (!Regular.password.test(password)) {
-      res.status(400).json({
-        status: false,
-        errMsg: "Password must be between 8 and 30 character, having at least one lower case, one upper case, one number, and one special character",
-      });
+    const result = validatorChain.validate(req.body);
+    if (!result.valid) {
+      res.status(400).json({ status: false, errMsg: result.error });
       return;
     }
 
