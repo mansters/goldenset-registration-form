@@ -69,6 +69,14 @@ From the components' perspective, the enhancements of them are
 
 some of components, utils or definition could be shared across the sub project, like the regular expression, interface definition
 
+### more comprehensive unit test
+
+The current unit test is based on function, not scenario, the ideal one should cover scenario as well.
+
+### monitoring
+
+in production env, the service should implement monitoring to check traffic and trigger alarm when detect malicious behavior. (e.g. implement IDS/IPS, and trigger alarm when under DDoS attack)
+
 ## Reference
 
 <a id="reference-1">[1]</a> [PostgreSQL - UNIQUE Constraint - GeeksforGeeks](https://www.geeksforgeeks.org/postgresql/postgresql-unique-constraint/)
