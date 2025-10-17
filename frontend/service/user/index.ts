@@ -1,10 +1,14 @@
 import { EmailDuplicationCheckResultDto, RegisterUserResponseDto, UserRegistrationDto } from "./interface";
 
-const BACKEND_URL = "http://localhost:3001";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+
+if (typeof window !== "undefined") {
+  console.log(API_BASE_URL);
+}
 
 export const isEmailRegistered = async (email: string): Promise<EmailDuplicationCheckResultDto> => {
   try {
-    const response = await fetch(`${BACKEND_URL}/api/users/check-email`, {
+    const response = await fetch(`${API_BASE_URL}/api/users/check-email`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -29,7 +33,7 @@ export const isEmailRegistered = async (email: string): Promise<EmailDuplication
 
 export const registerUser = async (user: UserRegistrationDto): Promise<RegisterUserResponseDto> => {
   try {
-    const response = await fetch(`${BACKEND_URL}/api/users/register`, {
+    const response = await fetch(`${API_BASE_URL}/api/users/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
