@@ -80,6 +80,9 @@ in production env, the service should implement monitoring to check traffic and 
 ## Reference
 
 <a id="reference-1">[1]</a> [PostgreSQL - UNIQUE Constraint - GeeksforGeeks](https://www.geeksforgeeks.org/postgresql/postgresql-unique-constraint/)
+
 <a id="reference-2">[2]</a> [PostgreSQL: Documentation: 17: 5.5. Constraints](https://www.postgresql.org/docs/17/ddl-constraints.html#DDL-CONSTRAINTS-UNIQUE-CONSTRAINTS)
+
 <a id="reference-3">[3]</a> [PostgreSQL: Documentation: 17: 34.8. Error Handling](https://www.postgresql.org/docs/17/ecpg-errors.html#ECPG-SQLSTATE-SQLCODE-ECPG-INFORMIX-DUPLICATE-KEY)
+
 <a id="reference-4">[4]</a> [Check for UNIQUE constraint in Node-Postgres - Stack Overflow](https://stackoverflow.com/questions/71323001/check-for-unique-constraint-in-node-postgres)
